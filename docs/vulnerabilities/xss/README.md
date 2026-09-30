@@ -1,6 +1,6 @@
 # XSS
 
-## Mental model
+## 基本の考え方
 
 ```text
 Input
@@ -11,27 +11,29 @@ Transformation / Encoding
   ↓
 Sink
   ↓
-Browser parsing context
+Browser Parsing Context
   ↓
 Execution
 ```
 
-The goal is not to memorize payloads. Determine which parser is active and what must be escaped or terminated to reach executable JavaScript.
+目的はpayloadを暗記することではありません。
 
-## Main areas
+**どのパーサーが入力を解釈しているか、実行可能なJavaScriptへ到達するために何を脱出・終了させる必要があるか**を考えます。
 
-- HTML context
-- HTML attribute context
-- JavaScript context
-- URL context
+## 主なContext
+
+- HTML Context
+- HTML Attribute Context
+- JavaScript Context
+- URL Context
 - DOM XSS
-- encoding / decoding boundaries
+- Encoding / Decoding Boundary
 
-## Review questions
+## レビュー時の確認項目
 
-- Where does attacker-controlled data originate?
-- What transformations occur before output?
-- Which sink receives the value?
-- Which parser interprets it next?
-- What characters are encoded, filtered, or decoded?
-- What must be escaped or closed?
+- 攻撃者入力はどこから来るか
+- 出力までにどんな変換が入るか
+- 最終的にどのSinkへ入るか
+- 次にどのパーサーが解釈するか
+- どの文字がEncode / Filter / Decodeされるか
+- どの構文やContextを脱出する必要があるか
