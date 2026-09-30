@@ -1,8 +1,8 @@
 # DOM XSS
 
-## Common sources
+## よく見るSource
 
-Examples to recognize:
+例:
 
 - `location.search`
 - `location.hash`
@@ -10,30 +10,31 @@ Examples to recognize:
 - `document.URL`
 - `document.referrer`
 - `postMessage`
-- browser storage
+- Browser Storage
 
-A source is not automatically vulnerable. The important question is where the value flows.
+Sourceが存在するだけでは脆弱性ではありません。
+**その値が最終的にどこへ流れるか**を確認します。
 
-## Common sinks
+## よく見るSink
 
-### HTML-parsing sinks
+### HTMLを解釈するSink
 
 - `innerHTML`
 - `outerHTML`
 - `insertAdjacentHTML()`
 - `document.write()`
 
-### JavaScript execution sinks
+### JavaScriptを実行し得るSink
 
 - `eval()`
 - `Function()`
-- string arguments to `setTimeout()` / `setInterval()`
+- 文字列を渡した `setTimeout()` / `setInterval()`
 
-## Safer text-only operations
+## テキスト出力用API
 
-Depending on the intended behavior, APIs such as `textContent` or `innerText` avoid interpreting input as HTML.
+用途によっては、`textContent` や `innerText` のようなHTMLとして解釈しないAPIが安全側になります。
 
-## Analysis
+## 分析手順
 
 ```text
 Source
@@ -42,7 +43,7 @@ Transformation
   ↓
 Sink
   ↓
-Which parser/interpreter receives it?
+どのParser / Interpreterが受け取るか
   ↓
-Can attacker-controlled data alter syntax?
+攻撃者入力で構文を変えられるか
 ```
