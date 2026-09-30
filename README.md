@@ -1,59 +1,64 @@
 # OSWE Field Manual
 
-A study repository for building practical OSWE / WEB-300 skills through hands-on labs, code reading, and exploit development.
+OSWE / WEB-300 に必要な実践力を、Web Security Academy、コードリーディング、Exploit 開発を通して積み上げるための学習用リポジトリです。
 
-## Goal
+## 目標
 
-Build the ability to take an unfamiliar web application and:
+未知の Web アプリケーションを渡されたときに、次の流れを自力で進められる状態を目指します。
 
-1. understand its framework and request flow,
-2. trace attacker-controlled input,
-3. identify vulnerable behavior,
-4. turn the behavior into an exploitable primitive,
-5. chain primitives when necessary,
-6. reproduce the result with a Python PoC.
+1. フレームワークとリクエスト処理の流れを理解する
+2. 攻撃者が制御できる入力を追跡する
+3. 脆弱な処理を特定する
+4. 脆弱性を悪用可能な primitive に変換する
+5. 必要なら複数の primitive を組み合わせる
+6. Python PoC で再現する
 
-## Study loop
+## 学習ループ
 
 ```text
-Learn / Read
+学習 / コードリーディング
     ↓
-Web Security Academy or code-reading exercise
+Web Security Academy / Reading Drill
     ↓
-Analyze without AI giving the lab answer
+AIに答えを出させず自分で分析
     ↓
-Manual exploit
+手動でExploit
     ↓
 Python PoC
     ↓
-Extract reusable knowledge
+再利用できる知識を抽出
     ↓
-Update this repository
+このリポジトリへ反映
 ```
 
-This repository is intentionally **not** a complete encyclopedia prepared in advance.
-It should grow from problems actually encountered while studying.
+このリポジトリは、最初から完全な百科事典を作るためのものではありません。
+実際に学習中に遭遇した内容から少しずつ育てます。
 
-## Structure
+## 構成
 
 ```text
 docs/
-  methodology/          White-box review workflow
-  vulnerabilities/      Reusable vulnerability knowledge
-  languages/            Security-oriented language/framework notes
+  methodology/          ホワイトボックス診断の方法論
+  vulnerabilities/      脆弱性ごとの再利用可能な知識
+  languages/            セキュリティ観点の言語・フレームワークメモ
 
-web-security-academy/   Per-lab notes and Python PoCs
-snippets/               Reusable small building blocks
-boilerplates/           Generic exploit skeletons
+web-security-academy/   各Labの記録とPython PoC
+snippets/               再利用可能な小さなコード片
+boilerplates/           汎用Exploit雛形
 ```
 
-## AI rule
+## AI利用ルール
 
-AI may help organize references, explain concepts after solving, review code, and improve reusable notes.
+AIは以下には使ってよいものとします。
 
-For a first attempt at a lab or exercise, AI should not directly provide the vulnerability, payload, or final exploit.
+- リファレンス整理
+- 解答後の概念説明
+- 自分で書いたコードのレビュー
+- 再利用可能なノートの整理
 
-## Current focus
+一方、Labや演習の初回挑戦中は、AIに脆弱性箇所・payload・完成Exploitを直接出させないようにします。
+
+## 現在の重点分野
 
 1. XSS
 2. SQL Injection
@@ -65,4 +70,4 @@ For a first attempt at a lab or exercise, AI should not directly provide the vul
 8. SSTI
 9. CSRF / JWT / Authentication
 
-Then move into WEB-300 modules and white-box challenge labs.
+一通り基礎を回したら、WEB-300 のモジュールと White-box Challenge Lab へ進みます。
