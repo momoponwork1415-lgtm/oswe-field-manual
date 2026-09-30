@@ -1,38 +1,40 @@
-# PHP for Security Code Reading
+# セキュリティコードリーディング用 PHP メモ
 
-This is not a general PHP tutorial. Record PHP constructs that matter while reviewing web applications.
+一般的なPHP入門ではなく、Webアプリケーションのセキュリティレビュー中に重要だった構文・APIだけを記録します。
 
-## Attacker-controlled request data
+## 攻撃者が制御しやすいHTTP入力
 
-Common sources:
+代表例:
 
 - `$_GET`
 - `$_POST`
 - `$_REQUEST`
 - `$_COOKIE`
 - `$_FILES`
-- selected server headers through `$_SERVER`
+- 一部のHTTP Headerを含む `$_SERVER`
 
-## State
+## セッション
 
 - `$_SESSION`
 
-Session values may be trusted or attacker-influenced depending on how they were created.
+Session値だから常に安全とは限りません。
 
-## Review habit
+そのSession値が**どのように生成・更新されたか**によっては、攻撃者が間接的に制御できる場合があります。
 
-For each value, trace:
+## コードを読むときの基本
+
+各値について次の流れを追います。
 
 ```text
-request/session source
+Request / Session Source
   ↓
-validation
+Validation
   ↓
-transformation
+Transformation
   ↓
-business logic
+Business Logic
   ↓
-sink
+Sink
 ```
 
-Add framework-specific syntax and APIs only when they appear in labs or WEB-300.
+フレームワーク固有の構文やAPIは、LabやWEB-300で実際に遭遇したものだけ追加します。
