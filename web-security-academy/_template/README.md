@@ -6,7 +6,7 @@
 
 ## Entry Point
 
-どのRoute / Endpoint / Client-side Entry Pointから機能へ到達するか。
+どの Route / Endpoint / Client-side Entry Point から機能へ到達するか。
 
 ## Source
 
@@ -14,7 +14,7 @@
 
 ## Transformation
 
-どんなValidation、Filtering、Encoding、Decoding、Parsing、Normalizationが入るか。
+どんな Validation、Filtering、Encoding、Decoding、Parsing、Normalization が入るか。
 
 ## Sink
 
@@ -22,22 +22,22 @@
 
 ## Context
 
-どのParser / Interpreter / Subsystemがその値を解釈するか。
+どの Parser / Interpreter / Subsystem がその値を解釈するか。
 
 ## 重要だった観察
 
 何が脆弱性成立の鍵になったか。
 
-## Exploitの考え方
+## Exploit の考え方
 
-Labを自力で解いた後に記録する。
+Lab を自力で解いた後に記録する。
 
 ## Python PoC
 
-- [ ] 手動Exploitを再現
-- [ ] Python PoCを作成
-- [ ] LabをReset / Restart
-- [ ] クリーンな状態からPoCで再現
+- [ ] 手動 Exploit を再現
+- [ ] Python PoC を作成
+- [ ] Lab を Reset / Restart
+- [ ] クリーンな状態から PoC で再現
 
 ## Primitive
 
