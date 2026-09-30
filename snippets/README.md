@@ -1,15 +1,17 @@
 # Snippets
 
-Store small pieces of code that have already proven useful during labs or WEB-300.
+Lab や WEB-300 で実際に役立った、小さく再利用可能なコードを保存します。
 
-Examples that may eventually belong here:
+将来的に入りそうな例:
 
-- authenticated HTTP session setup
-- CSRF token extraction
-- HTML parsing
-- encoding / decoding helpers
-- blind extraction loops
-- WebSocket helpers
-- file upload helpers
+- 認証済み HTTP Session
+- CSRF Token 抽出
+- HTML Parsing
+- Encoding / Decoding Helper
+- Blind Extraction Loop
+- WebSocket Helper
+- File Upload Helper
 
-Do not pre-build a large library. Extract a snippet only after the same pattern becomes reusable.
+最初から巨大なライブラリは作りません。
+
+同じ処理を何度も使うようになった段階で、Lab 固有コードから Snippet として切り出します。
