@@ -1,10 +1,10 @@
 # Web Security Academy — XSS
 
-Store only notes and PoCs from labs actually attempted.
+実際に挑戦したLabの記録とPoCだけを保存します。
 
-## Per-lab format
+## Labごとの構成
 
-Create one directory per lab:
+1つのLabにつき1ディレクトリ作ります。
 
 ```text
 lab-name/
@@ -12,32 +12,34 @@ lab-name/
 └── solve.py
 ```
 
-Suggested README sections:
+READMEの基本構成:
 
 ```markdown
-# Lab title
+# Lab名
 
-## Normal behavior
+## 正常系の挙動
+
+## Entry Point
 
 ## Source
 
-## Transformations
+## Transformation
 
 ## Sink
 
 ## Context
 
-## Key observation
+## 重要だった観察
 
-## Exploit reasoning
+## Exploitの考え方
 
 ## Python PoC
 
-## What I learned
+## 学んだこと
 
-## Reusable knowledge
+## 再利用できる知識
 
 ## References
 ```
 
-During the first attempt, do not fill the exploit reasoning from an AI-generated solution.
+初回挑戦中は、AIに完成したExploitや解法を書かせないようにします。
