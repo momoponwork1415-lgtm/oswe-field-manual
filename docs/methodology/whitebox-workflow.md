@@ -1,64 +1,68 @@
-# White-box Workflow
+# ホワイトボックス診断ワークフロー
 
-Use this as the default review loop for unfamiliar web applications.
+未知の Web アプリケーションを読むときの基本手順です。
 
-## 1. Understand normal behavior
+## 1. 正常系の挙動を理解する
 
-- What feature is being used?
-- What request reaches it?
-- What authentication state is required?
-- What changes in the response or server state?
+まず機能を普通に使います。
 
-## 2. Map the application
+- この機能は何をするものか
+- どのHTTPリクエストで到達するか
+- 認証は必要か
+- 実行するとレスポンスやサーバー状態がどう変わるか
 
-Trace:
+## 2. アプリケーション構造を把握する
+
+基本的には次の流れを追います。
 
 ```text
 Route
   ↓
 Controller / Handler
   ↓
-Request data
+Request Data
   ↓
 Validation / Transformation
   ↓
-Business logic
+Business Logic
   ↓
 DB / Template / File / HTTP / Command / Deserialization
 ```
 
-## 3. Trace data in both directions
+## 3. データフローを両方向から追う
 
 ### Source → Sink
 
-Start from attacker-controlled input and follow it forward.
+攻撃者が制御できる入力から開始し、最終的にどこへ届くかを追います。
 
 ### Sink → Source
 
-Start from dangerous operations and determine whether attacker-controlled data can reach them.
+危険な処理から逆方向にたどり、攻撃者入力が到達可能か確認します。
 
-Do not stop at obvious sinks. Also inspect authentication, authorization, state transitions, and business logic.
+ただし明確なSinkだけに注目しすぎず、認証、認可、状態遷移、Business Logic も確認します。
 
-## 4. Identify the primitive
+## 4. Primitive を考える
 
-Do not only name the vulnerability. Ask:
+脆弱性名だけで終わらせず、次を考えます。
 
-> What new capability does the attacker gain?
+> この脆弱性を悪用すると、攻撃者は新しく何ができるようになるか？
 
-Examples:
+例:
 
-- read arbitrary DB data
-- send server-side HTTP requests
-- read files
-- write files
-- execute template expressions
-- act as another user
-- reach an internal-only feature
+- DBの任意データを読める
+- サーバーから任意のHTTPリクエストを送れる
+- 任意ファイルを読める
+- 任意ファイルを書ける
+- テンプレート式を評価できる
+- 他ユーザーとして操作できる
+- 内部専用機能へ到達できる
 
-## 5. Exploit
+## 5. Exploit を構築する
 
-Understand constraints, build the exploit manually, then automate it.
+制約条件を理解し、まず手動でExploitを成立させます。
 
-## 6. Reproduce
+その後、自動化可能な部分を Python PoC に落とします。
 
-Reset/revert the target and confirm the exploit from a clean state with a single PoC.
+## 6. 再現性を確認する
+
+対象を初期状態へ戻し、クリーンな状態から単一のPoCで再現できることを確認します。
