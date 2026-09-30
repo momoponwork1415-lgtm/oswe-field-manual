@@ -1,28 +1,30 @@
-# XSS Encoding Notes
+# XSS Encoding メモ
 
-Encoding only makes sense relative to a parser context.
+Encodingは、**どのParser Contextに対して行われているか**をセットで考えます。
 
-Track the complete sequence:
+処理全体を追います。
 
 ```text
 Input
   ↓
 Encoding
   ↓
-Possible decoding
+必要ならDecoding
   ↓
-HTML parser
+HTML Parser
   ↓
-Possible JavaScript / URL parser
+必要ならJavaScript / URL Parser
 ```
 
-Areas to distinguish:
+区別したいもの:
 
-- HTML entity encoding
-- HTML attribute encoding
-- JavaScript string escaping
-- URL encoding
+- HTML Entity Encoding
+- HTML Attribute Encoding
+- JavaScript String Escaping
+- URL Encoding
 
-Do not assume that because a character is encoded once it remains harmless. A later decoding or parser transition may change the effective value.
+一度Encodeされたから安全とは限りません。
 
-Add concrete examples here only after encountering them during study.
+後段でDecodeされたり、別のParserへContextが切り替わったりすると、最終的な意味が変わることがあります。
+
+具体例は、実際のLabで遭遇したものだけ追加します。
