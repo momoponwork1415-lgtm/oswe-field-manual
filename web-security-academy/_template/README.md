@@ -1,54 +1,54 @@
-# Lab title
+# Lab名
 
-## Normal behavior
+## 正常系の挙動
 
-What does the feature do when used normally?
+この機能を普通に使うと何が起きるか。
 
-## Entry point
+## Entry Point
 
-Which route / endpoint / client-side entry point reaches the feature?
+どのRoute / Endpoint / Client-side Entry Pointから機能へ到達するか。
 
 ## Source
 
-Which value is attacker-controlled?
+どの値を攻撃者が制御できるか。
 
-## Transformations
+## Transformation
 
-What validation, filtering, encoding, decoding, parsing, or normalization happens?
+どんなValidation、Filtering、Encoding、Decoding、Parsing、Normalizationが入るか。
 
 ## Sink
 
-Where does the value finally reach?
+最終的に値がどこへ到達するか。
 
 ## Context
 
-What parser / interpreter / subsystem receives it?
+どのParser / Interpreter / Subsystemがその値を解釈するか。
 
-## Key observation
+## 重要だった観察
 
-What made the vulnerability exploitable?
+何が脆弱性成立の鍵になったか。
 
-## Exploit reasoning
+## Exploitの考え方
 
-Write this after solving the lab yourself.
+Labを自力で解いた後に記録する。
 
 ## Python PoC
 
-- [ ] Manual exploit reproduced
-- [ ] Python PoC written
-- [ ] Lab reset/restarted
-- [ ] PoC works from clean state
+- [ ] 手動Exploitを再現
+- [ ] Python PoCを作成
+- [ ] LabをReset / Restart
+- [ ] クリーンな状態からPoCで再現
 
 ## Primitive
 
-What capability did the vulnerability give the attacker?
+この脆弱性によって攻撃者は何ができるようになったか。
 
-## What I learned
+## 学んだこと
 
-What was new or difficult?
+今回新しく理解したこと、難しかったこと。
 
-## Reusable knowledge
+## 再利用できる知識
 
-What belongs in `docs/`, `snippets/`, or `boilerplates/`?
+`docs/`、`snippets/`、`boilerplates/` のどこへ昇格させるべきか。
 
 ## References
