@@ -1,10 +1,10 @@
 # Web Security Academy — XSS
 
-実際に挑戦したLabの記録とPoCだけを保存します。
+実際に挑戦した Lab の記録と PoC だけを保存します。
 
-## Labごとの構成
+## Lab ごとの構成
 
-1つのLabにつき1ディレクトリ作ります。
+1つの Lab につき1ディレクトリ作ります。
 
 ```text
 lab-name/
@@ -12,7 +12,7 @@ lab-name/
 └── solve.py
 ```
 
-READMEの基本構成:
+README の基本構成:
 
 ```markdown
 # Lab名
@@ -31,7 +31,7 @@ READMEの基本構成:
 
 ## 重要だった観察
 
-## Exploitの考え方
+## Exploit の考え方
 
 ## Python PoC
 
@@ -42,4 +42,4 @@ READMEの基本構成:
 ## References
 ```
 
-初回挑戦中は、AIに完成したExploitや解法を書かせないようにします。
+初回挑戦中は、AI に完成した Exploit や解法を書かせないようにします。
