@@ -1,6 +1,6 @@
 # DOM XSS
 
-## よく見るSource
+## よく見る Source
 
 例:
 
@@ -12,27 +12,26 @@
 - `postMessage`
 - Browser Storage
 
-Sourceが存在するだけでは脆弱性ではありません。
-**その値が最終的にどこへ流れるか**を確認します。
+Source が存在するだけでは脆弱性ではありません。重要なのは、その値が最終的にどこへ流れるかです。
 
-## よく見るSink
+## よく見る Sink
 
-### HTMLを解釈するSink
+### HTML を解釈する Sink
 
 - `innerHTML`
 - `outerHTML`
 - `insertAdjacentHTML()`
 - `document.write()`
 
-### JavaScriptを実行し得るSink
+### JavaScript を実行し得る Sink
 
 - `eval()`
 - `Function()`
 - 文字列を渡した `setTimeout()` / `setInterval()`
 
-## テキスト出力用API
+## テキスト出力用 API
 
-用途によっては、`textContent` や `innerText` のようなHTMLとして解釈しないAPIが安全側になります。
+用途によっては、`textContent` や `innerText` のような HTML として解釈しない API が安全側になります。
 
 ## 分析手順
 
@@ -43,7 +42,7 @@ Transformation
   ↓
 Sink
   ↓
-どのParser / Interpreterが受け取るか
+どの Parser / Interpreter が受け取るか
   ↓
 攻撃者入力で構文を変えられるか
 ```
