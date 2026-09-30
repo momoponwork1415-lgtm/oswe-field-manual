@@ -1,47 +1,48 @@
-# XSS Contexts
+# XSS Context
 
-Keep this file small. Add examples only after encountering them in labs.
+このファイルは小さく保ちます。
+実際のLabで遭遇した例だけを追加していきます。
 
-## HTML context
+## HTML Context
 
-Attacker input becomes part of HTML text.
+攻撃者入力がHTML本文の一部として出力されるケースです。
 
-Think about:
+確認すること:
 
-- which HTML parser state receives the value,
-- whether tags can be introduced,
-- which characters are encoded.
+- HTML Parser のどの状態で入力されるか
+- 新しいHTMLタグを作れるか
+- どの文字がEncodeされるか
 
-## Attribute context
+## Attribute Context
 
-Input appears inside an HTML attribute.
+入力がHTML属性値の中に入るケースです。
 
-Check:
+確認すること:
 
-- quoted vs unquoted attributes,
-- quote character,
-- whether a new attribute or element can be introduced,
-- whether the attribute itself has executable behavior.
+- Quoted / Unquoted のどちらか
+- 使用されている引用符
+- 属性値を閉じて新しい属性やタグを追加できるか
+- その属性自体に実行可能な意味があるか
 
-## JavaScript context
+## JavaScript Context
 
-Input appears inside JavaScript source.
+入力がJavaScriptソースコードの中に入るケースです。
 
-Check:
+確認すること:
 
-- string delimiter,
-- escaping behavior,
-- surrounding syntax,
-- whether HTML encoding matters before the JS parser sees the value.
+- 文字列Delimiter
+- Escape処理
+- 周囲のJavaScript構文
+- JavaScript Parser に届く前にHTML Encodingが入るか
 
-## URL context
+## URL Context
 
-Input appears in values such as `href`, `src`, or navigation APIs.
+`href`、`src`、Navigation API などURLとして扱われる場所に入力が入るケースです。
 
-Understand both URL parsing and the eventual execution context.
+URL Parser と、その後に入力を処理するContextの両方を確認します。
 
-## DOM context
+## DOM Context
 
-Client-side JavaScript reads data from a source and sends it to a sink.
+クライアント側JavaScriptがSourceから値を取得し、Sinkへ渡すケースです。
 
-Trace the runtime data flow rather than only the server response.
+サーバーレスポンスだけを見るのではなく、ブラウザ実行時のデータフローを追います。
