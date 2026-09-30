@@ -1,19 +1,17 @@
 # XSS Encoding メモ
 
-Encodingは、**どのParser Contextに対して行われているか**をセットで考えます。
-
-処理全体を追います。
+Encoding は、どの Parser Context に対して行われているかをセットで考えます。
 
 ```text
 Input
   ↓
 Encoding
   ↓
-必要ならDecoding
+必要なら Decoding
   ↓
 HTML Parser
   ↓
-必要ならJavaScript / URL Parser
+必要なら JavaScript / URL Parser
 ```
 
 区別したいもの:
@@ -23,8 +21,8 @@ HTML Parser
 - JavaScript String Escaping
 - URL Encoding
 
-一度Encodeされたから安全とは限りません。
+一度 Encode されたから安全とは限りません。
 
-後段でDecodeされたり、別のParserへContextが切り替わったりすると、最終的な意味が変わることがあります。
+後段で Decode されたり、別の Parser へ Context が切り替わったりすると、最終的な意味が変わることがあります。
 
-具体例は、実際のLabで遭遇したものだけ追加します。
+具体例は、実際の Lab で遭遇したものだけ追加します。
