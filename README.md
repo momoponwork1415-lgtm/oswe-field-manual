@@ -49,6 +49,8 @@ boilerplates/           汎用Exploit雛形
 
 当面は Web Security Academy の各 Lab を解きながら `requests` を学びます。最初の Python PoC は自分で書き、次の Lab からは自作の過去コードをコピーして必要な処理を書き替えます。[進め方](docs/methodology/poc-writing.md)と [Requests チートシート](docs/methodology/requests-cheatsheet.md)を参照してください。
 
+PoC 作成の実例は [Exploit Writing for OSWE](https://github.com/rizemon/exploit-writing-for-oswe) を主な参考にします。API の正確な動作は [Requests 公式資料](https://requests.readthedocs.io/en/latest/user/quickstart/)、試験要件は [OffSec 公式ガイド](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)で確認します。
+
 ## AI利用ルール
 
 AIは、リファレンス整理、解答後の概念説明、自作コードのレビュー、再利用ノートの整理には使ってよいものとします。

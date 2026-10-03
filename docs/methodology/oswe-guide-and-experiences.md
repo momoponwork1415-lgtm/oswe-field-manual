@@ -21,7 +21,7 @@
 
 holywater が利用した [kwkeefer/cookiecutter-poc](https://github.com/kwkeefer/cookiecutter-poc) は、引数付き CLI、HTTP コールバックサーバー、ペイロード配信、シェル受信などを備える**複数ファイルの汎用テンプレート**である。これは本人の採用例であり、OffSec が指定した形式ではない。単純な Web Security Academy Lab には機能を絞った 1 ファイルのほうが攻撃の理解と自力実装に適するというのが、このリポジトリでの判断である。複数段階の PoC でコールバックやシェル受信が必要になったとき、同テンプレートの構成を参考にできる。[受験記](https://holywater.dev/blog/oswe/)・[テンプレートの README](https://github.com/kwkeefer/cookiecutter-poc)
 
-[rizemon/exploit-writing-for-oswe](https://github.com/rizemon/exploit-writing-for-oswe) は、`requests` の使い方、リクエストの調査方法、再利用コードをまとめたコミュニティの参考資料である。著者自身が速度優先で一般的なコーディング慣行に反する例もあると断っており、`assert` による成功判定や開発中の Cookie のハードコードなどは、そのまま共通規約には採用しない。
+[rizemon/exploit-writing-for-oswe](https://github.com/rizemon/exploit-writing-for-oswe) は、`requests` の使い方、リクエストの調査方法、再利用コードをまとめたコミュニティの参考資料であり、このリポジトリでの **PoC 作成の主参考**とする。著者自身が速度優先で一般的なコーディング慣行に反する例もあると断っている。`assert` による必須の成功判定、開発中の Cookie のハードコード、グローバルな Session などは、そのまま共通規約には採用しない。`Starting Template` の `__main__` に引用符がない箇所もあるため、コード片の動作は公式 API 資料と実行結果で確認する。
 
 Bruno のガイドにある `requests.get(..., verify=False)` と警告抑制は、証明書検証を無効にする例であり、このリポジトリの既定値にはしない。必要な環境でのみ、理由を確認して設定する。[Bruno のコード例](https://www.brunorochamoura.com/posts/oswe-guide/)・[Requests の証明書検証](https://requests.readthedocs.io/en/stable/user/advanced/#ssl-cert-verification)
 

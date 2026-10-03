@@ -9,6 +9,12 @@
 
 関数名やファイルの骨格を固定しません。`Session`、CLI 引数、例外処理は Lab で必要になったところから使い、`requests` の挙動を理解することを優先します。HTTP 200 やペイロードの送信だけで成功とせず、今回の目的に合う応答を確認します。
 
+## 参照先
+
+PoC の作例は [rizemon/exploit-writing-for-oswe](https://github.com/rizemon/exploit-writing-for-oswe) を主に参照します。まず `Code Snippets` の Requests 部分と `Troubleshooting` を使い、実際に送ったリクエストと応答を観察します。API の正確な動作は [Requests 公式資料](https://requests.readthedocs.io/en/latest/user/quickstart/)で確認します。OSWE 試験の提出条件は [OffSec 公式ガイド](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)を優先します。
+
+この参考リポジトリは速度を重視した個人のノートで、コード例をそのまま規約にはしません。たとえば `Starting Template` の `__main__` に引用符がなく、`assert` による必須の成功判定は Python の `-O` 実行時に無効になります。([参考リポジトリ](https://github.com/rizemon/exploit-writing-for-oswe)・[Python の `assert`](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement))
+
 ## HTTP 通信の基本
 
 ### ライブラリの使い分け
