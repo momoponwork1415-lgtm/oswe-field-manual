@@ -47,6 +47,9 @@ snippets/               再利用可能な小さなコード片
 boilerplates/           汎用Exploit雛形
 ```
 
+Python PoC の共通形式は [書き方ガイド](docs/methodology/poc-writing.md)を参照します。
+HTTP 通信の書き方は [Requests チートシート](docs/methodology/requests-cheatsheet.md)にまとめています。
+
 ## AI利用ルール
 
 AIは、リファレンス整理、解答後の概念説明、自作コードのレビュー、再利用ノートの整理には使ってよいものとします。
