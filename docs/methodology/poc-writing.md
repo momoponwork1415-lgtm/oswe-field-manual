@@ -16,6 +16,19 @@ OffSec の [OSWE Exam Guide](https://help.offsec.com/hc/en-us/articles/360046869
 
 [Web Security Academy 用の最小テンプレート](../../boilerplates/wsa_requests.py)は、引数、Session、通信エラー処理だけを共通化します。複数段階の攻撃には [汎用雛形](../../boilerplates/exploit.py)も参照できます。実際の攻撃と成功条件は、自分で手動再現した結果から埋めます。
 
+### テンプレートの参考元
+
+このテンプレートは、公開されている単一の PoC をコピーしたものではありません。
+
+| 部分 | 参考元 |
+| --- | --- |
+| 対象 URL を引数で受け取る `parse_args()` と `main()` | [Python の `argparse` 公式資料](https://docs.python.org/3/library/argparse.html)と、引数を CLI で受け取る [Bruno Rocha Moura の構成例](https://www.brunorochamoura.com/posts/oswe-guide/) |
+| `requests.Session()`、`timeout`、`RequestException` | [Requests の Session](https://requests.readthedocs.io/en/latest/user/advanced/#session-objects)、[Timeouts](https://requests.readthedocs.io/en/latest/user/quickstart/#timeouts)、[例外](https://requests.readthedocs.io/en/latest/user/quickstart/#errors-and-exceptions) |
+| 目的を確認し、実行中の手入力を求めない方針 | [OffSec OSWE Exam Guide の Exam Proofs](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)。単一脆弱性の Web Security Academy Lab は、その実行形式を練習する場として扱う。 |
+| `run()`、`PoCError`、短い冒頭コメント | このリポジトリで決めた書き方。OffSec が指定する関数名やコメント書式ではない。 |
+
+より大きな公開 PoC 雛形として [kwkeefer/cookiecutter-poc](https://github.com/kwkeefer/cookiecutter-poc) がある。HTTP コールバックサーバーなども含むため、単一 Lab の最小テンプレートには取り込んでいない。
+
 ## HTTP 通信の基本
 
 ### ライブラリの使い分け
