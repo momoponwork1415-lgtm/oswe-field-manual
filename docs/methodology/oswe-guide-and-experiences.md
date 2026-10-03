@@ -28,7 +28,7 @@ Bruno のガイドにある `requests.get(..., verify=False)` と警告抑制は
 ## このリポジトリでの学習への反映（提案）
 
 1. Web Security Academy の**単一脆弱性 Lab は 1 ファイルの短い PoC**として自力で書く。これは練習単位であり、複数の脆弱性を連結する OSWE の提出形式そのものではない。[公式要件](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)
-2. 各 PoC で、対象 URL 等の引数、セッション管理、攻撃の各段階、成功を裏付ける出力、失敗理由を明確にする。コールバックが必要な題材ではリスナーのアドレスとポートも引数にする。再利用する断片は、必要性が実際に現れてから整理する。[Bruno の学習方針](https://www.brunorochamoura.com/posts/oswe-guide/)・[holywater の経験](https://holywater.dev/blog/oswe/)・[b1uef0x の経験](https://b1ue.x0.com/article/2026/0226/)
+2. まず各 Lab の PoC を自力で書き、次の Lab では自作コードをコピーして HTTP 通信と確認処理を書き替える。引数解析やセッション管理などは必要になってから取り入れる。繰り返す断片が見えてから整理する。[Bruno の学習方針](https://www.brunorochamoura.com/posts/oswe-guide/)・[holywater の経験](https://holywater.dev/blog/oswe/)・[b1uef0x の経験](https://b1ue.x0.com/article/2026/0226/)
 3. 手動で解けた後も、初期状態から無対話で再実行できるかを検証する。後に複数段階の Lab で、認証・Cookie・コールバック・検証を一連の流れに組み込む。[Riyan の経験](https://ruz.fi/en/posts/my-experience-taking-the-oswe-certification-from-offsec/)・[公式要件](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)
 4. 現在の反射型 XSS Lab で `requests` による反射確認までを行う場合は、その結果を **HTML 応答中の反射の証拠**として表現する。JavaScript の実行や Lab の解決を確認したとは書かない。これは本 Lab の検証範囲を正確に示すための整理である。
 

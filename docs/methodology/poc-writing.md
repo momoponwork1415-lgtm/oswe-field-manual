@@ -1,33 +1,13 @@
 # Python PoC の書き方
 
-## 公式要件とこのリポジトリの方針
+## 現在の進め方: Web Security Academy
 
-OffSec の [OSWE Exam Guide](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide) は、試験対象ごとに複数の脆弱性を利用する機能的なスクリプトを1本用意し、実行中に採点者の手作業を必要としないことを求めています。リバースシェルを得ない場合は proof 値の自動取得も必要です。PoC のソースコードは試験レポートの PDF 内に含めます。関数名、コメントの書式、Python の雛形は指定していません。
+1. Lab を手動で解き、HTTP リクエストと応答を確認する。
+2. 最初の Python PoC は [Requests チートシート](requests-cheatsheet.md)を参照して自分で書く。
+3. 次の Lab では自作の過去ファイルをコピーし、Lab 名・攻撃手順・HTTP 通信・確認処理を書き替える。
+4. 1 Lab につき 1 Python ファイルを保存する。冒頭コメントは Lab 名、手順、実行方法だけでよい。
 
-以下は学習用のローカル規約です。Web Security Academy では1 Labにつき1つの Python ファイルを書き、本番形式の練習では攻撃経路を対象ごとに1本へまとめます。
-
-## ファイルの骨格
-
-1. 冒頭コメントに Lab 名、攻撃手順、実行方法を簡潔に書く。前提条件などは必要なときだけ足す。
-2. `parse_args()` で対象URLと必要な設定を受け取る。コールバックを使う場合はリスナーのアドレスとポートも指定できるようにする。実行中の `input()` は使わない。
-3. 単一 Lab なら `run()` に通信と確認処理を書く。複数段階の攻撃では各段階を短い関数に分け、必要なら `exploit()` と `verify()` に分ける。
-4. 目的に合う証拠を確認する。HTTP 200 やペイロードの送信だけで成功としない。
-5. `main()` で Session、エラー、終了コードを管理する。成功時は証拠を表示して0、失敗時は理由を表示して非0を返す。
-
-[Web Security Academy 用の最小テンプレート](../../boilerplates/wsa_requests.py)は、引数、Session、通信エラー処理だけを共通化します。複数段階の攻撃には [汎用雛形](../../boilerplates/exploit.py)も参照できます。実際の攻撃と成功条件は、自分で手動再現した結果から埋めます。
-
-### テンプレートの参考元
-
-このテンプレートは、公開されている単一の PoC をコピーしたものではありません。
-
-| 部分 | 参考元 |
-| --- | --- |
-| 対象 URL を引数で受け取る `parse_args()` と `main()` | [Python の `argparse` 公式資料](https://docs.python.org/3/library/argparse.html)と、引数を CLI で受け取る [Bruno Rocha Moura の構成例](https://www.brunorochamoura.com/posts/oswe-guide/) |
-| `requests.Session()`、`timeout`、`RequestException` | [Requests の Session](https://requests.readthedocs.io/en/latest/user/advanced/#session-objects)、[Timeouts](https://requests.readthedocs.io/en/latest/user/quickstart/#timeouts)、[例外](https://requests.readthedocs.io/en/latest/user/quickstart/#errors-and-exceptions) |
-| 目的を確認し、実行中の手入力を求めない方針 | [OffSec OSWE Exam Guide の Exam Proofs](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide)。単一脆弱性の Web Security Academy Lab は、その実行形式を練習する場として扱う。 |
-| `run()`、`PoCError`、短い冒頭コメント | このリポジトリで決めた書き方。OffSec が指定する関数名やコメント書式ではない。 |
-
-より大きな公開 PoC 雛形として [kwkeefer/cookiecutter-poc](https://github.com/kwkeefer/cookiecutter-poc) がある。HTTP コールバックサーバーなども含むため、単一 Lab の最小テンプレートには取り込んでいない。
+関数名やファイルの骨格を固定しません。`Session`、CLI 引数、例外処理は Lab で必要になったところから使い、`requests` の挙動を理解することを優先します。HTTP 200 やペイロードの送信だけで成功とせず、今回の目的に合う応答を確認します。
 
 ## HTTP 通信の基本
 
@@ -47,6 +27,10 @@ OffSec の [OSWE Exam Guide](https://help.offsec.com/hc/en-us/articles/360046869
 
 ## 再利用する単位
 
-認証、CSRF token 抽出、アップロード、blind extraction など、複数のLabで繰り返した短い処理だけを [`snippets/`](../../snippets/) に保存します。各PoCは必要な処理を取り込み、単独で動く状態にします。Labを初期状態に戻して再実行し、ヘッダーに書いた成功の証拠が得られるか確認します。
+まずは過去の自作 PoC をコピーして使います。認証、CSRF token 抽出、アップロードなど、実際に何度も書いた処理だけを後から [`snippets/`](../../snippets/) に保存します。各 PoC は単独で動く状態にし、Lab を初期状態に戻して再実行できるか確認します。
 
 `requests` だけで確認できる範囲も明記します。たとえば XSS の応答への反射は確認できますが、JavaScript の実行そのものは確認できません。
+
+## 後で: OSWE 形式の練習
+
+WEB-300 の複数段階の課題に進むとき、[OffSec の OSWE Exam Guide](https://help.offsec.com/hc/en-us/articles/360046869951-WEB-300-Advanced-Web-Attacks-and-Exploitation-OSWE-Exam-Guide) が求める攻撃の連結と無対話の実行を確認します。現時点の単一 Lab では、[汎用雛形](../../boilerplates/exploit.py)へ合わせる必要はありません。

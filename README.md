@@ -47,8 +47,7 @@ snippets/               再利用可能な小さなコード片
 boilerplates/           汎用Exploit雛形
 ```
 
-Python PoC の共通形式は [書き方ガイド](docs/methodology/poc-writing.md)を参照します。
-HTTP 通信の書き方は [Requests チートシート](docs/methodology/requests-cheatsheet.md)にまとめています。
+当面は Web Security Academy の各 Lab を解きながら `requests` を学びます。最初の Python PoC は自分で書き、次の Lab からは自作の過去コードをコピーして必要な処理を書き替えます。[進め方](docs/methodology/poc-writing.md)と [Requests チートシート](docs/methodology/requests-cheatsheet.md)を参照してください。
 
 ## AI利用ルール
 
