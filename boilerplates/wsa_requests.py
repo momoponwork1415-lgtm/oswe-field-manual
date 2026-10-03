@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 
 # Lab: <Lab 名>
-# 目的: <確認したい結果>
-# 攻撃手順:
+# 手順:
 # 1. <自分で確認した手順>
-# 前提条件: <必要な準備、なければ「なし」>
 # 実行: python3 <このファイル名>.py https://TARGET/
-# 成功の証拠: <レスポンスや状態の具体的な確認項目>
 
 import argparse
 import sys
